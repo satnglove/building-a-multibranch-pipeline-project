@@ -14,7 +14,7 @@ pipeline {
         stage('Check for review') {
             steps {
                 sh 'echo ${BRANCH_NAME}'
-                 throw error
+
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Deliver for development') {
             when {
-                branch 'master'
+                branch 'development'
             }
             steps {
                 sh './jenkins/scripts/deliver-for-development.sh'

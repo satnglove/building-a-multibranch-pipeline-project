@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh  'mkdir /.npm'
+                sh  'sudo mkdir /.npm'
                 //sh  'chown -R $USER:root /.npm'
                 //sh  'chown -R $USER:root /.config'
                 sh  'echo $USER'
@@ -21,7 +21,7 @@ pipeline {
                 sh  'pwd'
                 sh  'node -v'
                 sh  'npm -v'
-                sh  'npm install'
+                sh  'sudo npm install'
             }
         }
         stage('Test') {

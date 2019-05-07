@@ -10,6 +10,14 @@ pipeline {
         HOME="."
     }
     stages {
+
+        stage('Check for review') {
+            steps {
+                sh '${BRANCH_NAME}'
+                 throw error
+            }
+        }
+
         stage('Build') {
             steps {
                 //sh "npm config set prefix '/home/node'"

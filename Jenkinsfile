@@ -14,7 +14,9 @@ pipeline {
                 //sh  'mkdir /.npm'
                 //sh  'chown -R $USER:root /.npm'
                 //sh  'chown -R $USER:root /.config'
+                sh  'who'
                 sh  'npm -v'
+                sh  'npm install'
             }
         }
         stage('Test') {

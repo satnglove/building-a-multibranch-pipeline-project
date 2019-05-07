@@ -13,7 +13,7 @@ pipeline {
 
         stage('Check for review') {
             steps {
-                sh '${BRANCH_NAME}'
+                sh 'echo ${BRANCH_NAME}'
                  throw error
             }
         }

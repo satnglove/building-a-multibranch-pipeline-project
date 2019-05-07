@@ -11,10 +11,19 @@ pipeline {
     }
     stages {
 
-        stage('Check for review') {
+      stage('Check for review') {
             steps {
-                sh 'echo ${BRANCH_NAME}'
-
+                script {
+                    withCredentials([[$class: "UsernamePasswordMultiBinding", credentialsId: "47abe382-eb8b-42ce-9427-6197346f66ef", usernameVariable: "GHUSR", passwordVariable: "GHPWD"]]){
+                        try {
+                            GHURL = "https://api.github.com/repos/satnglove/building-a-multibranch-pipeline-project/pulls/${CHANGE_ID}/reviews"
+                            sh "curl -u ${GHUSR}:${GHPWD} ${GHURL} 2>/dev/null |grep 'state'|grep -c 'APPROVED'"
+                        } catch(error) {
+                            echo "=================> Not approved, rejecting! <================="
+                            throw error
+                        }
+                    }
+                }
             }
         }
 

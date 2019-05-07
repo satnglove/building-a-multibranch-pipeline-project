@@ -12,8 +12,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "npm config set prefix '/home/node'"
-                sh 'npm install --unsafe-perm'
+                //sh "npm config set prefix '/home/node'"
+                sh 'npm install'
             }
         }
         stage('Test') {

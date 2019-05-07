@@ -15,6 +15,7 @@ pipeline {
                 //sh  'chown -R $USER:root /.npm'
                 //sh  'chown -R $USER:root /.config'
                 sh  'echo $USER'
+                sh  'ls /'
                 sh  'pwd'
                 sh  'npm -v'
                 sh  'npm install'

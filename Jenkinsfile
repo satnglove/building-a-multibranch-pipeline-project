@@ -11,7 +11,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh  'chown -R $USER:$GROUP ~/.npm'
+                sh  'chown -R $USER:$GROUP ~/.config'
+                sh  'npm install'
             }
         }
         stage('Test') {

@@ -19,6 +19,7 @@ pipeline {
                 sh  'ls -la /home'
                 sh  'ls -la /home/node'
                 sh  'pwd'
+                sh  'node -v'
                 sh  'npm -v'
                 sh  'npm install'
             }

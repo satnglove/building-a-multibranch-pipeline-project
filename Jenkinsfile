@@ -17,6 +17,7 @@ pipeline {
                 sh  'echo $USER'
                 sh  'ls -la /'
                 sh  'ls -la /home'
+                sh  'ls -la /home/node'
                 sh  'pwd'
                 sh  'npm -v'
                 sh  'npm install'

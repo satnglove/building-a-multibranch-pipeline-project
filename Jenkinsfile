@@ -11,10 +11,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh  'mkdir /.npm'
-                sh  'chown -R $USER:root /.npm'
-                sh  'chown -R $USER:root /.config'
-                sh  'npm install'
+                //sh  'mkdir /.npm'
+                //sh  'chown -R $USER:root /.npm'
+                //sh  'chown -R $USER:root /.config'
+                sh  'npm -v'
             }
         }
         stage('Test') {

@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'node:6-alpine'
             args '-v $HOME/.npm:/root/.npm -p 3000:3000 -p 5001:5000'
+            customWorkspace '/home/node'
         }
     }
     environment {
@@ -11,7 +12,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh  'su mkdir /.npm'
+                //sh  'su mkdir /.npm'
                 //sh  'chown -R $USER:root /.npm'
                 //sh  'chown -R $USER:root /.config'
                 sh  'echo $USER'
@@ -21,7 +22,7 @@ pipeline {
                 sh  'pwd'
                 sh  'node -v'
                 sh  'npm -v'
-                sh  'su npm install'
+                sh  'npm install'
             }
         }
         stage('Test') {
